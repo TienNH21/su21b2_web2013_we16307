@@ -1,6 +1,7 @@
 <?php
 
-require_once './utils.php';
+require './util.php';
+
 /*
  * TODO: Tìm hiểu các lệnh sau, chỉ rõ sự khác biệt
  * require
@@ -17,7 +18,9 @@ require_once './utils.php';
  */
 $name = "TienNH22";
 
-sayHello($name);
+echo $name;
+
+// sayHello($name);
 
 function sum($a = 0, $b = 2) {
     $tong = $a + $b;
