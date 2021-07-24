@@ -48,3 +48,6 @@ $startDate = '28-06-2021';
 $endDate = $startDate . ' +7 week last Saturday';
 
 echo date( $format, strtotime($endDate) );
+
+echo date('m-d-Y', strtotime('first day of this month'));
+echo date('m-d-Y', strtotime('last day of this month'));
