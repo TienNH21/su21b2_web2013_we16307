@@ -1,56 +1,12 @@
 <?php
 
-// Kết nối CSDL với PDO
-
-$dbUser = "root";
-$dbPass = "";
-$dbName = "we16307";
-$dbHost = "localhost";
-
 /*
- * B1: Tạo kết nối tới CSDL
- * $connection ( kết quả trả về của hàm mysqli() ) là đối tượng đại diện cho kết nối tới DB
+ * .        Xét thư mục hiện tại
+ * ..       Lùi lại 1 thư mục
  */
-$conn = new PDO("mysql: host=localhost; dbname=we16307", $dbUser, $dbPass);
+require_once './../../db/khach_hang.php';
 
-// B2: Viết truy vấn
-$sql = "SELECT * FROM khach_hang";
-
-// B3: tạo Statement để thực thi câu truy vấn
-$statement = $conn->prepare($sql);
-
-/*
- * B4: gọi hàm execute() để thực thi câu truy vấn
- * execute()
- * @params: array -> Các tham số của câu truy vấn
- */
-$statement->execute([]);
-$statement->setFetchMode(PDO::FETCH_ASSOC);
-
-$data = [];
-
-// B5: bóc dữ liệu
-while(true) {
-    // Lấy ra dòng dữ liệu tiếp theo
-    $rowData = $statement->fetch();
-
-    if ($rowData == false) {
-        // Đã đọc hết dữ liệu -> dừng vòng lặp
-        break;
-    }
-
-    $row = [
-        'id' => $rowData['id'],
-        'ma' => $rowData['ma'],
-        'ten' => $rowData['ten'],
-        'sdt' => $rowData['sdt'],
-        'dia_chi' => $rowData['dia_chi'],
-        'gioi_tinh' => $rowData['gioi_tinh'],
-        'email' => $rowData['email'],
-    ];
-
-    array_push($data, $row);
-}
+$data = getAll();
 
 ?>
 
@@ -70,7 +26,7 @@ while(true) {
 <body>
     <div>
         <div>
-            <a href="/we16307/src/admin/users/them_moi.html">Thêm mới</a>
+            <a href="/we16307/src/admin/khach_hang/them_moi.html">Thêm mới</a>
         </div>
 
         <div>
@@ -84,6 +40,7 @@ while(true) {
                         <td>Email</td>
                         <td>SĐT</td>
                         <td>Địa chỉ</td>
+                        <td colspan="2">Thao tác</td>
                     </tr>
                 </thead>
 
@@ -112,6 +69,12 @@ while(true) {
                             </td>
                             <td>
                                 <?php echo $value['dia_chi']; ?>
+                            </td>
+                            <td>
+                                <a href="">Cập nhật</a>
+                            </td>
+                            <td>
+                                <a href="">Xóa</a>
                             </td>
                         </tr>
                     <?php } ?>
