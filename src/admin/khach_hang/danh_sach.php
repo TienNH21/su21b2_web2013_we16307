@@ -71,10 +71,10 @@ $data = getAll();
                                 <?php echo $value['dia_chi']; ?>
                             </td>
                             <td>
-                                <a href="">Cập nhật</a>
+                                <a href="/we16307/src/admin/khach_hang/form_update.php?id=<?php echo $value['id']; ?>">Cập nhật</a>
                             </td>
                             <td>
-                                <a href="">Xóa</a>
+                                <a href="/we16307/src/admin/khach_hang/delete.php?id=<?php echo $value['id']; ?>">Xóa</a>
                             </td>
                         </tr>
                     <?php } ?>
