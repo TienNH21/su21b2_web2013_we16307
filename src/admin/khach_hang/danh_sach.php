@@ -1,10 +1,16 @@
 <?php
 
+session_start();
+
 /*
  * .        Xét thư mục hiện tại
  * ..       Lùi lại 1 thư mục
  */
 require_once './../../db/khach_hang.php';
+
+if ( isset($_SESSION['user']) == false ) {
+    header("Location: /we16307/src/auth/login_form.php");
+}
 
 $data = getAll();
 
