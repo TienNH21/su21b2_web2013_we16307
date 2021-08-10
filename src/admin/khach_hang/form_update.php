@@ -46,6 +46,11 @@ $data = findById($_GET['id']);
             </select>
         </div>
         <div>
+            <label>Avatar</label>
+            <input type="file" name="avatar" />
+            <input type="hidden" name="old_avatar" value="<?php echo $data['avatar']; ?>" />
+        </div>
+        <div>
             <label>Email</label>
             <input type="email" name="email" value="<?php echo $data['email']; ?>"  />
         </div>

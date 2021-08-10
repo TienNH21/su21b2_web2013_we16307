@@ -32,7 +32,7 @@ $data = getAll();
 <body>
     <div>
         <div>
-            <a href="/we16307/src/admin/khach_hang/them_moi.html">Thêm mới</a>
+            <a href="/we16307/src/admin/khach_hang/form_them_moi.php">Thêm mới</a>
         </div>
 
         <div>
@@ -42,6 +42,7 @@ $data = getAll();
                         <td>Id</td>
                         <td>Mã</td>
                         <td>Tên</td>
+                        <td>Avatar</td>
                         <td>Giới tính</td>
                         <td>Email</td>
                         <td>SĐT</td>
@@ -61,6 +62,10 @@ $data = getAll();
                             </td>
                             <td>
                                 <?php echo $value['ten']; ?>
+                            </td>
+                            <td>
+                                <img src="<?php echo $value['avatar'] ?>" />
+
                             </td>
                             <td>
                                 <?php

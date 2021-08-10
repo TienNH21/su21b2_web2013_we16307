@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,8 +10,22 @@
     <title>Document</title>
 </head>
 <body>
-    <form method="POST"
-        action="/we16307/src/admin/khach_hang/them_moi.php">
+    <?php
+    if ( isset($_SESSION['error']) ) {
+        echo $_SESSION['error'];
+        unset( $_SESSION['error'] );
+    }
+    ?>
+    <!--
+        Form Upload file
+        -> method="POST"
+        -> enctype="multipart/form-data"
+    -->
+    <form
+        method="POST"
+        enctype="multipart/form-data"
+        action="/we16307/src/admin/khach_hang/them_moi.php"
+    >
         <div>
             <label>Mã KH</label>
             <input type="text" name="ma" />
@@ -23,6 +40,10 @@
                 <option value="1">Nam</option>
                 <option value="2">Nữ</option>
             </select>
+        </div>
+        <div>
+            <label>Avatar</label>
+            <input type="file" name="avatar" />
         </div>
         <div>
             <label>Email</label>

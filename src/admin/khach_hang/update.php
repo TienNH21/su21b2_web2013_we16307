@@ -2,6 +2,10 @@
 
 require_once './../../db/khach_hang.php';
 
+// if (!isset($_FILES['avatar']) || empty($_FILES['avatar'])) {
+//     $avatar = $_POST['old_avatar'];
+// }
+
 $data = [
     'id' => $_POST['id'],
     'ma' => $_POST['ma'],
